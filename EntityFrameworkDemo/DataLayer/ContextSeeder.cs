@@ -85,43 +85,43 @@ namespace DataLayer
 
         protected override void Seed(Context context)
         {
-            Examination e = new Examination()
+            //Examination e = new Examination()
+            //{
+            //    Description = "fromda console",
+            //    CutOffMark = 1000,
+            //    QuestionID = new List<Question>()
+            //    { 
+            //        new Question()
+            //        {
+            //            QuestionDes = "from da console",
+            //            Answer1 = "from da console",
+            //            Answer2 = "from da console",
+            //            Answer3 = "from da console",
+            //            Answer4 = "from da console",
+            //            Correct = 1
+            //            //ExaminationID = 1
+            //        }
+            //    }
+            //};
+            //context.Examinations.Add(e);
+
+            User u1 = new User()
             {
-                Description = "fromda console",
-                CutOffMark = 1000,
-                QuestionID = new List<Question>()
-                { 
-                    new Question()
-                    {
-                        QuestionDes = "from da console",
-                        Answer1 = "from da console",
-                        Answer2 = "from da console",
-                        Answer3 = "from da console",
-                        Answer4 = "from da console",
-                        Correct = 1
-                        //ExaminationID = 1
-                    }
-                }
+
+                UserName = "dayan",
+                Password = "dayan",
+                Role = "Admin"
+
             };
-            context.Examinations.Add(e);
+            User u2 = new User()
+            {
+                UserName = "neranjan",
+                Password = "neranjan",
+                Role = "employee"
+            };
 
-            //User u1 = new User()
-            //{
-
-            //    UserName = "dayan",
-            //    Password = "dayan",
-            //    Role = "Admin"
-
-            //};
-            //User u2 = new User()
-            //{
-            //    UserName = "neranjan",
-            //    Password = "neranjan",
-            //    Role = "employee"
-            //};
-
-            //context.Users.Add(u1);
-            //context.Users.Add(u2);
+            context.Users.Add(u1);
+            context.Users.Add(u2);
             //context.SaveChanges();
             base.Seed(context);
 

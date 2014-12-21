@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataLayer;
 
 namespace WebUI
 {
@@ -11,7 +12,21 @@ namespace WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Context con = new Context();
+            //var test2 = con.Questions.Where(a => a.ID == 4).Select(x => new { newcolname = x.QuestionDes + x.Answer1 + x.Answer2 + x.Answer3 + x.Answer4}).ToList();
+            var query = from c in con.Questions 
+                        select new
+                        {
+                            c.ID,
+                            c.QuestionDes,
+                            c.Answer1,
+                            c.Answer2,
+                            c.Answer3,
+                            c.Answer4
+                        };
+
+            GridView1.DataSource = query.ToList(); //con.Questions.ToList();
+            GridView1.DataBind();
         }
 
 
@@ -39,6 +54,11 @@ namespace WebUI
             //GridView1.DataSource = con;
             //GridView1.DataBind();
 
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList1.Visible = true;
         }
     }
 }

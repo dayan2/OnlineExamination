@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmployeeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="EmployeeModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="EmployeeModel.Course" />
+    <EntitySet Name="Helpers" EntityType="EmployeeModel.Helper" />
+    <AssociationSet Name="CourseHelper" Association="EmployeeModel.CourseHelper">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Helper" EntitySet="Helpers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Single" Name="Name" Nullable="false" />
+    <NavigationProperty Name="Helpers" Relationship="EmployeeModel.CourseHelper" FromRole="Course" ToRole="Helper" />
+  </EntityType>
+  <EntityType Name="Helper">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Purpose" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="EmployeeModel.CourseHelper" FromRole="Helper" ToRole="Course" />
+    <Property Type="Int32" Name="CourseId" Nullable="false" />
+  </EntityType>
+  <Association Name="CourseHelper">
+    <End Type="EmployeeModel.Course" Role="Course" Multiplicity="1" />
+    <End Type="EmployeeModel.Helper" Role="Helper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Helper">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

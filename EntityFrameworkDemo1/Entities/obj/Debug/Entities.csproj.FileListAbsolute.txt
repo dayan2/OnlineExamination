@@ -1,0 +1,11 @@
+C:\Users\dayan\Desktop\Dayan\test\ADO_NET\EntityFrameworkDemo1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\dayan\Desktop\EntityFrameworkDemo1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\dayan\Desktop\EntityFrameworkDemo1\Entities\bin\Debug\Entities.dll
+C:\Users\dayan\Desktop\EntityFrameworkDemo1\Entities\bin\Debug\Entities.pdb
+C:\Users\dayan\Desktop\EntityFrameworkDemo1\Entities\obj\Debug\Entities.dll
+C:\Users\dayan\Desktop\EntityFrameworkDemo1\Entities\obj\Debug\Entities.pdb
+C:\Users\dayan\Desktop\EntityFrameworkDemo\Entities\bin\Debug\Entities.dll
+C:\Users\dayan\Desktop\EntityFrameworkDemo\Entities\bin\Debug\Entities.pdb
+C:\Users\dayan\Desktop\EntityFrameworkDemo\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\dayan\Desktop\EntityFrameworkDemo\Entities\obj\Debug\Entities.dll
+C:\Users\dayan\Desktop\EntityFrameworkDemo\Entities\obj\Debug\Entities.pdb

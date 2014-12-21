@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OnlineExam" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=OnlineExam;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OnlineExamConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Questions" Member="Questions">
+    <Type Name="Question">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestionDes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Answer1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Answer2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Answer3" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Answer4" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Correct" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExaminationID_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Question_Choice" Member="Choices" ThisKey="ID" OtherKey="QuestionID_ID" Type="Choice" />
+      <Association Name="Examination_Question" Member="Examination" ThisKey="ExaminationID_ID" OtherKey="ID" Type="Examination" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Choices" Member="Choices">
+    <Type Name="Choice">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChoiceDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QuestionID_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Question_Choice" Member="Question" ThisKey="QuestionID_ID" OtherKey="ID" Type="Question" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Examinations" Member="Examinations">
+    <Type Name="Examination">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CutOffMark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Examination_Question" Member="Questions" ThisKey="ID" OtherKey="ExaminationID_ID" Type="Question" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EmployeeModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="EmployeeModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Helpers" EntityType="EmployeeModel.Store.Helpers" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CourseHelper" Association="EmployeeModel.Store.CourseHelper">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Helper" EntitySet="Helpers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Helpers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Purpose" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CourseHelper">
+    <End Role="Course" Type="EmployeeModel.Store.Courses" Multiplicity="1" />
+    <End Role="Helper" Type="EmployeeModel.Store.Helpers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Helper">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

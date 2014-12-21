@@ -60,5 +60,60 @@ namespace WebUI
         {
             DropDownList1.Visible = true;
         }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            int a1 = Convert.ToInt32(TextBox1.Text);
+            int a2 = Convert.ToInt32(TextBox2.Text);
+            int a3 = Convert.ToInt32(TextBox3.Text);
+            int a4 = Convert.ToInt32(TextBox4.Text);
+            CheckAnswers(a1, 15);
+            CheckAnswers(a2, 16);
+            CheckAnswers(a3, 17);
+            //CheckAnswers(a4, 18);
+            
+        }
+        /// <summary>
+        /// using LINQ getting the QuestionID and the correct Answer from the DB to a list
+        /// And looping through that list to find user's marks
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="index"></param>
+        private void CheckAnswers(int a, int index)
+        {
+            
+            Context con = new Context();
+            var query = from c in con.Questions
+                        where (c.ID == index)
+                        && (c.Correct == a)
+                        select c;
+
+            List<Question> list = new List<Question>();
+            foreach (var i in query)
+            {
+                list.Add(
+                    new Question()
+                    {
+                        ID = i.ID,
+                        Correct = i.Correct
+                    }
+                );
+            }            
+            GridView2.DataSource = list;
+            GridView2.DataBind();
+
+            int Count = 0;
+
+            foreach (var item in list)
+            {
+                if (item.Correct == a)
+                    Count++;
+            }
+            //Label1.Text = Count.ToString();
+            int cc = list.Count();
+            Label1.Text = cc.ToString();
+
+        }
+
     }
 }

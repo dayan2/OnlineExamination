@@ -1,0 +1,27 @@
+﻿body {
+
+}
+.box {
+    width:700px;
+    height:200px;
+    margin:auto;
+}
+.h1 {
+    font-family:'Segoe UI';
+    padding:20px 10px 10px 10px;
+    font-size:20px;
+}
+.niv {
+    padding:10px 10px 10px 10px;
+}
+#Button1 {
+    padding:10px 10px 10px 20px;
+    border-radius:5px 5px 5px 5px;
+}
+.sector {
+    padding:40px 0px 60px 200px;
+    
+}
+.button {
+    float:right;
+}

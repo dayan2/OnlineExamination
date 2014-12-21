@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="aa79cae4-9dd4-4410-91b2-fafc91624e53" absoluteBounds="2.625, 2, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataClassesDataContext/Question" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8ecff74-ebf2-4b8e-a841-c2ccaaed77c0" absoluteBounds="2.64, 2.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3410f025-1f15-4234-8ef8-7a2587157e6e" absoluteBounds="5.375, 2.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataClassesDataContext/Choice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a1f445b-ed64-4e3e-b005-07946449f0f5" absoluteBounds="5.39, 2.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.625 : 2.94314697265625); (5.375 : 2.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Question/Question_Choice" />
+      <nodes>
+        <classShapeMoniker Id="aa79cae4-9dd4-4410-91b2-fafc91624e53" />
+        <classShapeMoniker Id="3410f025-1f15-4234-8ef8-7a2587157e6e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1ace1a3a-54af-4aa9-835a-fdffe5e4e0f5" absoluteBounds="5.125, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataClassesDataContext/Examination" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a7bd0b6f-b266-4750-82f4-0ac6eee7c3e6" absoluteBounds="5.1400000000000006, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 1.8862939453125); (4.625 : 2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClassesDataContext/Examination/Examination_Question" />
+      <nodes>
+        <classShapeMoniker Id="1ace1a3a-54af-4aa9-835a-fdffe5e4e0f5" />
+        <classShapeMoniker Id="aa79cae4-9dd4-4410-91b2-fafc91624e53" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8aa79dea-462c-4096-b709-f1809b31438d" absoluteBounds="0.5, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45c56cb1-9b35-4a23-8cfc-8e6f5486e43b" absoluteBounds="0.515, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
